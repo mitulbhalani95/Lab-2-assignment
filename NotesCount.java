@@ -1,0 +1,40 @@
+package com.mitul.lab2;
+import java.util.*;
+
+public class NotesCount extends Currency {
+	public void notesCountImplimentation(int notes[],int amount) {
+		
+		int[] noteCounter = new int[notes.length];
+		
+		
+		try {
+			for(int i=0;i<notes.length;i++) {
+				
+				if(amount>=notes[i]) {
+					
+					noteCounter[i] = amount/notes[i];
+					amount = amount - noteCounter[i]*notes[i];
+					
+				}
+				
+			}
+			
+			if(amount>0) {
+				System.out.println("exact amount cannot be given with highest denomination");
+			}else {
+				System.out.println("your payment approch in order to give min no of notes");
+				
+			}for (int i=0;i<notes.length;i++) {
+				if(noteCounter[i] !=0) {
+					System.out.println(notes[i] +" : " + noteCounter[i]);
+				}
+			}
+		
+	}
+	         catch (ArithmeticException e) {
+		      System.out.println(e + "notes of denomination 0 is invalid");
+	}
+	}
+}
+
+
